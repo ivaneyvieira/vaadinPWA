@@ -1,14 +1,14 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val vaadinonkotlin_version = "0.4.9"
-val vaadin10_version = "11.0.1"
+val vaadinonkotlin_version = "0.5.1"
+val vaadin10_version = "12.0.0"
 
 plugins {
-  kotlin("jvm") version "1.2.71"
+  kotlin("jvm") version "1.3.10"
   id("org.gretty") version "2.2.0"
-  id(
-    "io.spring.dependency-management") version "1.0.6.RELEASE"  // remove when https://github.com/gradle/gradle/issues/4417 is fixed
+  id("io.spring.dependency-management") version "1.0.6.RELEASE"
+  // remove when https://github.com/gradle/gradle/issues/4417 is fixed
   war
 }
 
@@ -42,7 +42,7 @@ tasks.withType<KotlinCompile> {
 val staging by configurations.creating
 
 dependencies {
-  compile("com.github.vok.karibudsl:karibu-dsl-v10:$vaadinonkotlin_version")
+  compile("com.github.mvysny.karibudsl:karibu-dsl-v10:$vaadinonkotlin_version")
   providedCompile("javax.servlet:javax.servlet-api:3.1.0")
   // the app-layout custom component
   compile("org.webjars.bowergithub.polymerelements:app-layout:2.1.0")

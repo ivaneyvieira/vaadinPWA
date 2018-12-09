@@ -1,6 +1,14 @@
 package com.vaadin.pwademo
 
-import com.github.vok.karibudsl.flow.*
+import com.github.mvysny.karibudsl.v10.VaadinDsl
+import com.github.mvysny.karibudsl.v10.beanValidationBinder
+import com.github.mvysny.karibudsl.v10.bind
+import com.github.mvysny.karibudsl.v10.button
+import com.github.mvysny.karibudsl.v10.content
+import com.github.mvysny.karibudsl.v10.init
+import com.github.mvysny.karibudsl.v10.onLeftClick
+import com.github.mvysny.karibudsl.v10.textField
+import com.github.mvysny.karibudsl.v10.trimmingConverter
 import com.vaadin.flow.component.HasComponents
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 
