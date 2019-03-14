@@ -6,17 +6,16 @@ import com.github.appreciated.app.layout.builder.interfaces.NavigationElementCon
 import com.github.appreciated.app.layout.component.appmenu.MenuHeaderComponent
 import com.github.appreciated.app.layout.component.appmenu.left.builder.LeftAppMenuBuilder
 import com.github.appreciated.app.layout.entity.Section.DEFAULT
-import com.github.appreciated.app.layout.entity.Section.HEADER
 import com.github.appreciated.app.layout.entity.Section.FOOTER
+import com.github.appreciated.app.layout.entity.Section.HEADER
 import com.github.appreciated.app.layout.router.AppLayoutRouterLayout
 import com.vaadin.flow.component.Component
 import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon
 import com.vaadin.flow.theme.AbstractTheme
 
-class PWALayout() : AppLayoutRouterLayout() {
-  fun init(title: String = "", behaviour: Behaviour = Behaviour.LEFT_HYBRID,
-           initLayout: AppLayoutBuilder.() -> Unit) {
+class PWALayout : AppLayoutRouterLayout() {
+  fun init(title: String = "", behaviour: Behaviour = Behaviour.LEFT_HYBRID, initLayout: AppLayoutBuilder.() -> Unit) {
     val appLayoutBuilder = AppLayoutBuilder.get(behaviour).apply {
       initLayout()
     }

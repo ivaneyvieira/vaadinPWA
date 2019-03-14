@@ -8,11 +8,9 @@ import javax.xml.bind.DatatypeConverter
 
 fun ByteArray.makeResource(): StreamResource {
   val nome = md5()
-
-  val factory : () -> InputStream ={
+  val factory: () -> InputStream = {
     ByteArrayInputStream(this)
   }
-
   val streamResource = StreamResource("$nome.jpg", factory)
   streamResource.cacheTime = 1000
   return streamResource

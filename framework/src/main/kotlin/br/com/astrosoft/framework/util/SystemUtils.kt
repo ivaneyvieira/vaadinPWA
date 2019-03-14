@@ -20,17 +20,15 @@ object SystemUtils {
     val envResult = SystemUtils.enviroment[`var`]
     return if (envResult == null || envResult.trim { it <= ' ' } == "") {
       def
-    } else envResult
+    }
+    else envResult
   }
 
-  fun resize(
-    imagem: ByteArray?,
-    width: Int,
-    height: Int
-            ): ByteArray? {
+  fun resize(imagem: ByteArray?, width: Int, height: Int): ByteArray? {
     return try {
       if (imagem == null) return null
-      val bImagemIn = toBufferedImage(imagem) ?: return null
+      val bImagemIn = toBufferedImage(imagem)
+                      ?: return null
       val bimage = Scalr.resize(bImagemIn, Method.QUALITY, Mode.FIT_TO_WIDTH, width, height)
       toByteArray(bimage)
     } catch (e: IOException) {
@@ -58,7 +56,8 @@ object SystemUtils {
   fun getResourceAsStream(name: String?): InputStream? {
     var nameRet = name
     nameRet = resolveName(nameRet)
-    val cl = SystemUtils::class.java.classLoader ?: return ClassLoader.getSystemResourceAsStream(nameRet)
+    val cl = SystemUtils::class.java.classLoader
+             ?: return ClassLoader.getSystemResourceAsStream(nameRet)
     return cl.getResourceAsStream(nameRet)
   }
 
@@ -77,7 +76,8 @@ object SystemUtils {
       if (index != -1) {
         nameRet = baseName.substring(0, index).replace('.', '/') + "/" + nameRet
       }
-    } else {
+    }
+    else {
       nameRet = nameRet.substring(1)
     }
     return nameRet
@@ -97,9 +97,7 @@ object SystemUtils {
 
   private fun hashString(type: String, input: String): String {
     val hexChar = "0123456789ABCDEF"
-    val bytes = MessageDigest
-      .getInstance(type)
-      .digest(input.toByteArray())
+    val bytes = MessageDigest.getInstance(type).digest(input.toByteArray())
     val result = StringBuilder(bytes.size * 2)
 
     bytes.forEach {

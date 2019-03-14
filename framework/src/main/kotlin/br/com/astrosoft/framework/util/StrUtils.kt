@@ -1,7 +1,8 @@
 package br.com.astrosoft.framework.util
 
 fun String?.lpad(size: Int, filler: String): String {
-  var str = this ?: ""
+  var str = this
+            ?: ""
   if (str.length > size) return str.substring(0, size)
   val buf = StringBuilder(str)
   while (buf.length < size) buf.insert(0, filler)
@@ -11,7 +12,8 @@ fun String?.lpad(size: Int, filler: String): String {
 }
 
 fun String?.rpad(size: Int, filler: String): String {
-  val str = this ?: ""
+  val str = this
+            ?: ""
   if (str.length > size) return str.substring(0, size)
   val buf = StringBuilder(str)
   while (buf.length < size) buf.append(filler)
@@ -20,12 +22,12 @@ fun String?.rpad(size: Int, filler: String): String {
 }
 
 fun String?.trimNull(): String {
-  return this?.trim { it <= ' ' } ?: ""
+  return this?.trim { it <= ' ' }
+         ?: ""
 }
 
 fun String.mid(start: Int, len: Int): String {
-  return if (this == "")
-    ""
+  return if (this == "") ""
   else {
     val end = start + len
     val pStart = when {
@@ -38,10 +40,8 @@ fun String.mid(start: Int, len: Int): String {
       end > length -> length
       else         -> end
     }
-    if (pStart <= pEnd)
-      substring(pStart, pEnd)
-    else
-      ""
+    if (pStart <= pEnd) substring(pStart, pEnd)
+    else ""
   }
 }
 
